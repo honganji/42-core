@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/16 16:36:01 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/03/31 15:15:11 by ytoshihi         ###   ########.fr       */
+/*   Created: 2024/03/30 14:18:56 by ytoshihi          #+#    #+#             */
+/*   Updated: 2024/03/31 15:14:17 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "utils.h"
 
-// static void	test(void *num)
-// {
-// 	printf("lst element: %d\n", *(int *)num);
-// }
-
-void	push_swap(t_list **a, t_list **b)
+void	pa(t_list **lst_a, t_list **lst_b)
 {
-	if (!*a)
-		return ;
-	while (*a)
-	{
-		if (!(*b))
-			pb(a, b);
-		if (*(int *)((*b)->content) <= *(int *)((*a)->content))
-			pb(a, b);
-		else
-		{
-			pa(a, b);
-			swap(a);
-		}
-	}
-	while (*b)
-		pa(a, b);
+	push(lst_a, lst_b);
+	ft_putstr_fd("pa\n", 1);
+}
+
+void	pb(t_list **lst_a, t_list **lst_b)
+{
+	push(lst_b, lst_a);
+	ft_putstr_fd("pb\n", 1);
 }

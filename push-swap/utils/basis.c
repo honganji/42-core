@@ -6,21 +6,21 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 15:31:44 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/03/29 15:44:53 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/03/30 14:35:42 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-void	swap(t_list *lst)
+void	swap(t_list **lst)
 {
 	void	*tmp;
 
-	if (!(lst->next))
+	if (!((*lst)->next))
 		return ;
-	tmp = lst->content;
-	lst->content = lst->next->content;
-	lst->next->content = tmp;
+	tmp = (*lst)->content;
+	(*lst)->content = (*lst)->next->content;
+	(*lst)->next->content = tmp;
 }
 
 void	rotate(t_list **lst)

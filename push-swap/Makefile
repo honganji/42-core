@@ -39,7 +39,7 @@ re_exe: fclean gen_exe
 
 gen_exe:
 	$(CC) $(CC_FLAG) -o $(EXECUTABLE_NAME) $(SOURCE_UTILS) $(UTILS_DIR)/$(LIBFT_LIB)
-	@./$(EXECUTABLE_NAME)
+	./$(EXECUTABLE_NAME) 7 8 90 78 55 56 34 76 46 989 45
 
 $(OBJ_DIR)/%.o: %.c
 	$(CC) -c $< -o $@

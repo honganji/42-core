@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/16 16:36:01 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/03/31 15:15:11 by ytoshihi         ###   ########.fr       */
+/*   Created: 2024/03/29 20:34:49 by ytoshihi          #+#    #+#             */
+/*   Updated: 2024/03/29 21:32:48 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// static void	test(void *num)
-// {
-// 	printf("lst element: %d\n", *(int *)num);
-// }
-
-void	push_swap(t_list **a, t_list **b)
+int	check_if_unique(int num, int *array, int size)
 {
-	if (!*a)
-		return ;
-	while (*a)
+	int count;
+
+	count = 0;
+	while (count < size)
 	{
-		if (!(*b))
-			pb(a, b);
-		if (*(int *)((*b)->content) <= *(int *)((*a)->content))
-			pb(a, b);
-		else
-		{
-			pa(a, b);
-			swap(a);
-		}
+		if (num == array[count++])
+			return (0);
 	}
-	while (*b)
-		pa(a, b);
+	return (1);
+}
+
+void	swap_in_array(int *array, int i, int j)
+{
+	int tmp;
+
+	tmp = array[i];
+	array[i] = array[j];
+	array[j] = tmp;
 }

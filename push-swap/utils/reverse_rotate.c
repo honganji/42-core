@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/16 16:36:01 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/03/31 15:15:11 by ytoshihi         ###   ########.fr       */
+/*   Created: 2024/03/30 14:32:28 by ytoshihi          #+#    #+#             */
+/*   Updated: 2024/03/30 14:34:05 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "utils.h"
 
-// static void	test(void *num)
-// {
-// 	printf("lst element: %d\n", *(int *)num);
-// }
-
-void	push_swap(t_list **a, t_list **b)
+void	rra(t_list **lst_a)
 {
-	if (!*a)
-		return ;
-	while (*a)
-	{
-		if (!(*b))
-			pb(a, b);
-		if (*(int *)((*b)->content) <= *(int *)((*a)->content))
-			pb(a, b);
-		else
-		{
-			pa(a, b);
-			swap(a);
-		}
-	}
-	while (*b)
-		pa(a, b);
+	reverse_rotate(lst_a);
+	ft_putstr_fd("rra\n", 1);
+}
+
+void	rrb(t_list **lst_b)
+{
+	reverse_rotate(lst_b);
+	ft_putstr_fd("rrb\n", 1);
+}
+
+void	rrr(t_list **lst_a, t_list **lst_b)
+{
+	reverse_rotate(lst_a);
+	reverse_rotate(lst_b);
+	ft_putstr_fd("rrr\n", 1);
 }
