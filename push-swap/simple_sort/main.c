@@ -6,16 +6,16 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 19:05:38 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/03/31 15:13:40 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/03/31 15:53:06 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	test(void *num)
-{
-	printf("lst element: %d\n", *(int *)num);
-}
+// static void	test(void *num)
+// {
+// 	printf("lst element: %d\n", *(int *)num);
+// }
 
 // int	main(void)
 // {
@@ -84,21 +84,7 @@ int	main(int argc, char *argv[])
 		ft_lstadd_front(&lst_a, ft_lstnew(&(array[i - 1])));
 		i++;
 	}
-
-	// display list a and b
-	printf("list_a: \n");
-	ft_lstiter(lst_a, test);
-	printf("\nlist_b: \n");
-	ft_lstiter(lst_b, test);
-
 	// execute push swap
 	push_swap(&lst_a, &lst_b);
-
-	// display list a and b
-	printf("\nlist_a: \n");
-	ft_lstiter(lst_a, test);
-	printf("\nlist_b: \n");
-	ft_lstiter(lst_b, test);
 	return (0);
 }
-
