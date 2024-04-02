@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 14:07:37 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/02 14:20:20 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:10:52 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ static int	get_min_num(t_list *b)
 	return (min_num);
 }
 
-int	search_min_num(t_list *b, int num)
+long	search_min_num(t_list *b, long num)
 {
-	int		min_diff;
+	long		min_diff;
 
 	min_diff = 2147483647;
 	if (num < get_min_num(b) || num >= get_max_num(b))

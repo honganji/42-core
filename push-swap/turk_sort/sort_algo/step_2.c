@@ -6,20 +6,20 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 18:40:02 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/02 14:14:08 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/02 17:11:27 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort_algo.h"
 
-static void	cal_op(t_list *lst, int num, t_op *op)
+static void	cal_op(t_list *lst, long num, t_op *op)
 {
 	int	size;
 	int	count;
 
 	size = ft_lstsize(lst);
 	count = 0;
-	while (lst && *(int *)lst->content != num)
+	while (lst && *(long *)lst->content != num)
 	{
 		lst = lst->next;
 		count++;
@@ -77,7 +77,7 @@ static void	put_right_place(t_list **a, t_list **b)
 	while (tmp)
 	{
 		cal_op(*a, *(int *)tmp->content, &tmp_ab_op.a_op);
-		cal_op(*b, search_min_num(*b, *(int *)tmp->content), &tmp_ab_op.b_op);
+		cal_op(*b, search_min_num(*b, *(long *)tmp->content), &tmp_ab_op.b_op);
 		tmp_ab_op.sum = tmp_ab_op.a_op.times + tmp_ab_op.b_op.times;
 		if (final_ab_op.sum == -1 || tmp_ab_op.sum < final_ab_op.sum)
 			final_ab_op = tmp_ab_op;
