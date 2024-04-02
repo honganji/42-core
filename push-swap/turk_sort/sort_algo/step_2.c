@@ -6,16 +6,11 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 18:40:02 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/01 23:14:07 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/02 14:14:08 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort_algo.h"
-
-// static void	test(void *num)
-// {
-// 	printf("lst element: %d\n", *(int *)num);
-// }
 
 static void	cal_op(t_list *lst, int num, t_op *op)
 {
@@ -39,37 +34,6 @@ static void	cal_op(t_list *lst, int num, t_op *op)
 		op->times = count;
 		op->is_r = 1;
 	}
-}
-
-static int	search_min_num(t_list *b, int num)
-{
-	int		min_diff;
-	t_list	*tmp;
-	int		big_num;
-	int		min_num;
-
-	min_diff = 2147483647;
-	tmp = b;
-	big_num = *(int *)tmp->content;
-	min_num = *(int *)tmp->content;
-	while (tmp)
-	{
-		if (*(int *)tmp->content > big_num)
-			big_num = *(int *)tmp->content;
-		if (*(int *)tmp->content < min_num)
-			min_num = *(int *)tmp->content;
-		tmp = tmp->next;
-	}
-	if (num < min_num || num >= big_num)
-		return (big_num);
-	while (b)
-	{
-		if ((num - *(int *)b->content) < min_diff && num
-			- *(int *)b->content > 0)
-			min_diff = num - *(int *)b->content;
-		b = b->next;
-	}
-	return (num - min_diff);
 }
 
 static void	sort_a_b(t_ab_op final_ab_op, t_list **a, t_list **b)
@@ -100,15 +64,6 @@ static void	sort_a_b(t_ab_op final_ab_op, t_list **a, t_list **b)
 	}
 }
 
-static void	final_sort(t_list **a, t_list **b)
-{
-	t_ab_op	ab_op;
-
-	cal_op(*b, search_min_num(*b, 2147483647), &ab_op.b_op);
-	ab_op.a_op.times = 0;
-	sort_a_b(ab_op, a, b);
-}
-
 static void	put_right_place(t_list **a, t_list **b)
 {
 	t_ab_op	tmp_ab_op;
@@ -135,17 +90,13 @@ static void	put_right_place(t_list **a, t_list **b)
 
 void	push_with_sort(t_list **a, t_list **b)
 {
-	int	size;
+	int		size;
+	t_ab_op	ab_op;
 
 	size = ft_lstsize(*a);
 	while (size-- > 3)
-	{
 		put_right_place(a, b);
-		// display list a and b
-		// printf("\nlist_a: \n");
-		// ft_lstiter(*a, test);
-		// printf("\nlist_b: \n");
-		// ft_lstiter(*b, test);
-	}
-	final_sort(a, b);
+	cal_op(*b, search_min_num(*b, 2147483647), &ab_op.b_op);
+	ab_op.a_op.times = 0;
+	sort_a_b(ab_op, a, b);
 }

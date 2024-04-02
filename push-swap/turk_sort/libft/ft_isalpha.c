@@ -1,35 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/29 20:34:49 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/03/29 21:32:48 by ytoshihi         ###   ########.fr       */
+/*   Created: 2024/03/05 19:26:41 by ytoshihi          #+#    #+#             */
+/*   Updated: 2024/03/08 20:35:36 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	check_if_unique(int num, int *array, int size)
+int	ft_isalpha(int c)
 {
-	int count;
-
-	count = 0;
-	while (count < size)
-	{
-		if (num == array[count++])
-			return (0);
-	}
-	return (1);
-}
-
-void	swap_in_array(int *array, int i, int j)
-{
-	int tmp;
-
-	tmp = array[i];
-	array[i] = array[j];
-	array[j] = tmp;
+	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }

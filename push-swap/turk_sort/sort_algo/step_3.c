@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 19:43:46 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/01 23:33:14 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/02 14:15:41 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ static void	sort_two_op(t_list **a)
 
 void	sort_three_nums(t_list **a)
 {
-	// printf("check: %d", check_if_sorted(*a));
 	if (check_if_sorted(*a))
 		return ;
 	sort_two_op(a);

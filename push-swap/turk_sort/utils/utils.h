@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 09:13:12 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/03/31 17:10:17 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/02 16:43:29 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,14 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdarg.h>
-# include "libft.h"
+# include <limits.h>
+# include "../libft/libft.h"
+
+typedef union num
+{
+	int		i_num;
+	long	l_num;
+}t_num;
 
 void	swap(t_list **lst);
 void	rotate(t_list **lst);
@@ -34,5 +41,6 @@ void	rra(t_list **lst_a);
 void	rrb(t_list **lst_b);
 void	rrr(t_list **lst_a, t_list **lst_b);
 int		push_two_num(t_list **a, t_list **b);
+int	check_arg(int argc, char **argv, long **array);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 15:31:44 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/03/30 14:35:42 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/02 14:22:26 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ void	push(t_list **lst_dst, t_list **lst_src)
 
 	tmp = *lst_src;
 	ft_lstadd_front(lst_dst, ft_lstnew((*lst_src)->content));
-	*lst_src = (*lst_src)->next; 
+	*lst_src = (*lst_src)->next;
 	free(tmp);
 }

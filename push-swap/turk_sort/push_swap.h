@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 09:13:29 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/01 15:47:50 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/02 13:35:49 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,5 @@
 
 int		ft_printf(const char *str, ...);
 void	push_swap(t_list **a, t_list **b);
-int		check_if_unique(int num, int *array, int size);
-void	swap_in_array(int *array, int i, int j);
 
 #endif
