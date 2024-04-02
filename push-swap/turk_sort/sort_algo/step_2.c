@@ -6,13 +6,13 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 18:40:02 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/02 17:11:27 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/02 19:33:08 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort_algo.h"
 
-static void	cal_op(t_list *lst, long num, t_op *op)
+void	cal_op(t_list *lst, long num, t_op *op)
 {
 	int	size;
 	int	count;
@@ -36,7 +36,7 @@ static void	cal_op(t_list *lst, long num, t_op *op)
 	}
 }
 
-static void	sort_a_b(t_ab_op final_ab_op, t_list **a, t_list **b)
+void	sort_a_b(t_ab_op final_ab_op, t_list **a, t_list **b)
 {
 	while (final_ab_op.a_op.times && final_ab_op.b_op.times
 		&& final_ab_op.a_op.is_r == final_ab_op.b_op.is_r)
@@ -94,6 +94,12 @@ void	push_with_sort(t_list **a, t_list **b)
 	t_ab_op	ab_op;
 
 	size = ft_lstsize(*a);
+	if (size <= 3 && ft_lstsize(*b) > 1)
+	{
+		if (*(int *)(*b)->content < *(int *)(*b)->next->content)
+			sb(b);
+		return;
+	}
 	while (size-- > 3)
 		put_right_place(a, b);
 	cal_op(*b, search_min_num(*b, 2147483647), &ab_op.b_op);

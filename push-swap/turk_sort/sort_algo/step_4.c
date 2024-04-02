@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 20:28:19 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/01 23:33:48 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/02 19:27:38 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,19 @@ int	get_last_element(t_list *a)
 void	push_all_from_b(t_list **a, t_list **b)
 {
 	int	count;
+	t_ab_op	ab_op;
 
 	count = 0;
 	while (*b)
 	{
-		pa(a, b);
-		while (get_last_element(*a) == *(int *)(*a)->content - 1 && count < 3)
+		while (get_last_element(*a) > *(int *)(*b)->content && count < 3)
 		{
 			rra(a);
 			count++;
 		}
+		pa(a, b);
 	}
+	cal_op(*a, get_min_num(*a), &ab_op.a_op);
+	ab_op.b_op.times = 0;
+	sort_a_b(ab_op, a, b);
 }

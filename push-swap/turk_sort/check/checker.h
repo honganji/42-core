@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 09:13:29 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/02 18:17:07 by ytoshihi         ###   ########.fr       */
+/*   Created: 2024/04/02 18:04:10 by ytoshihi          #+#    #+#             */
+/*   Updated: 2024/04/02 18:05:25 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_H
+# define CHECKER_H
 
-# include "./utils/utils.h"
-# include "./sort_algo/sort_algo.h"
-# include "./check/checker.h"
-# include <stdio.h>
-# include <stdarg.h>
-# include <limits.h>
-# include <stdlib.h>
+# include "../utils/utils.h"
 
-int		ft_printf(const char *str, ...);
-void	push_swap(t_list **a, t_list **b);
+int	check_result(t_list *a);
 
 #endif

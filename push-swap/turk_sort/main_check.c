@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 19:05:38 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/02 19:02:28 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/02 19:02:46 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	push_swap(&lst_a, &lst_b);
+	if (check_result(lst_a))
+		ft_putstr_fd("OK\n", 1);
+	else
+		ft_putstr_fd("KO\n", 1);
 	free(array);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 14:07:37 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/02 17:10:52 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/02 19:17:23 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	get_max_num(t_list *b)
 	return (max_num);
 }
 
-static int	get_min_num(t_list *b)
+int	get_min_num(t_list *b)
 {
 	int		min_num;
 
