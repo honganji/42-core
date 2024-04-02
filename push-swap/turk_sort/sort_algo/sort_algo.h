@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 09:13:12 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/01 13:52:41 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/01 20:34:17 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,23 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include "../utils/utils.h"
-#include <limits.h>
 
-typedef struct operation
+typedef struct op
 {
-	int	is_ra;
-	int	a_times;
-	int	is_rb;
-	int	b_times;
-}	t_operation;
+	int	is_r;
+	int	times;
+}	t_op;
+
+typedef struct ab_op
+{
+	t_op	a_op;
+	t_op	b_op;
+	int		sum;
+}	t_ab_op;
 
 int		push_two_num(t_list **a, t_list **b);
-void	put_right_place(t_list **a, t_list **b);
+void	push_with_sort(t_list **a, t_list **b);
+void	sort_three_nums(t_list **a);
+void	push_all_from_b(t_list **a, t_list **b);
 
 #endif

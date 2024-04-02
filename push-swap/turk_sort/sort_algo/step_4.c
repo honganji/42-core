@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   step_4.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 09:13:29 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/01 15:47:50 by ytoshihi         ###   ########.fr       */
+/*   Created: 2024/04/01 20:28:19 by ytoshihi          #+#    #+#             */
+/*   Updated: 2024/04/01 23:33:48 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "sort_algo.h"
 
-# include "./utils/utils.h"
-# include "./sort_algo/sort_algo.h"
-# include <stdio.h>
-# include <stdarg.h>
-# include <limits.h>
-# include <stdlib.h>
+int	get_last_element(t_list *a)
+{
+	while (a->next)
+		a = a->next;
+	return (*(int *)a->content);
+}
 
-int		ft_printf(const char *str, ...);
-void	push_swap(t_list **a, t_list **b);
-int		check_if_unique(int num, int *array, int size);
-void	swap_in_array(int *array, int i, int j);
+void	push_all_from_b(t_list **a, t_list **b)
+{
+	int	count;
 
-#endif
+	count = 0;
+	while (*b)
+	{
+		pa(a, b);
+		while (get_last_element(*a) == *(int *)(*a)->content - 1 && count < 3)
+		{
+			rra(a);
+			count++;
+		}
+	}
+}
