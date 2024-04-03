@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 14:07:37 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/03 12:48:33 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/03 12:51:23 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,22 @@ long	search_next_num(t_list *b, long num)
 		b = b->next;
 	}
 	return (num - min_diff);
+}
+
+int	calculate_sum(t_ab_op op)
+{
+	int	sum;
+
+	sum++;
+	while (op.a.times && op.b.times && (op.a.is_r == op.b.is_r))
+	{
+		sum++;
+		op.a.times--;
+		op.b.times--;
+	}
+	while (op.a.times--)
+		sum++;
+	while (op.b.times--)
+		sum++;
+	return (sum);
 }

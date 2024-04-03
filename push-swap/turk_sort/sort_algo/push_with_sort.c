@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 18:40:02 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/03 12:41:06 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/03 12:51:52 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static void	put_right_place(t_list **a, t_list **b)
 		num_a = *(long *)tmp_lst->content;
 		cal_op(*a, num_a, &tmp_op.a);
 		cal_op(*b, search_next_num(*b, num_a), &tmp_op.b);
-		tmp_op.sum = tmp_op.a.times + tmp_op.b.times;
+		tmp_op.sum = calculate_sum(tmp_op);
 		if (final_op.sum == -1 || tmp_op.sum < final_op.sum)
 			final_op = tmp_op;
 		tmp_lst = tmp_lst->next;

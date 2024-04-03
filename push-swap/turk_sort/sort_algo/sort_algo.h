@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 09:13:12 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/03 12:07:17 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/03 12:51:32 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ void	sort_a_b(t_ab_op final_ab_op, t_list **a, t_list **b);
 void	cal_op(t_list *lst, long num, t_op *op);
 int		get_min_num(t_list *b);
 int		get_max_num(t_list *b);
+int		calculate_sum(t_ab_op op);
 
 #endif
