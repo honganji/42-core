@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 09:13:12 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/02 19:17:37 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/03 12:07:17 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,19 @@ typedef struct op
 
 typedef struct ab_op
 {
-	t_op	a_op;
-	t_op	b_op;
+	t_op	a;
+	t_op	b;
 	int		sum;
 }	t_ab_op;
 
 int		push_two_num(t_list **a, t_list **b);
 void	push_with_sort(t_list **a, t_list **b);
 void	sort_three_nums(t_list **a);
-void	push_all_from_b(t_list **a, t_list **b);
-long	search_min_num(t_list *b, long num);
+void	push_all_to_a(t_list **a, t_list **b);
+long	search_next_num(t_list *b, long num);
 void	sort_a_b(t_ab_op final_ab_op, t_list **a, t_list **b);
 void	cal_op(t_list *lst, long num, t_op *op);
 int		get_min_num(t_list *b);
+int		get_max_num(t_list *b);
 
 #endif

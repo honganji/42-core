@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 14:35:08 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/02 16:59:02 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/03 11:55:30 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,6 @@ int	check_unique(int argc, long *array)
 		count_1++;
 	}
 	return (1);
-}
-
-static void	ft_error(void)
-{
-	ft_putstr_fd("Error\n", 1);
 }
 
 static int	check_type_int(int argc, char **argv)
@@ -80,7 +75,7 @@ int	check_num(int argc, char **argv)
 	return (1);
 }
 
-int	check_arg(int argc, char **argv, long **array)
+int	store_arg(int argc, char **argv, long **array)
 {
 	int		count;
 	long	tmp;
@@ -88,7 +83,7 @@ int	check_arg(int argc, char **argv, long **array)
 	count = 1;
 	if (!check_num(argc, argv) || !check_type_int(argc, argv))
 	{
-		ft_error();
+		ft_putstr_fd("Error\n", 1);
 		free(*array);
 		return (0);
 	}
@@ -100,7 +95,7 @@ int	check_arg(int argc, char **argv, long **array)
 	}
 	if (!check_unique(argc, *array))
 	{
-		ft_error();
+		ft_putstr_fd("Error\n", 1);
 		free(*array);
 		return (0);
 	}

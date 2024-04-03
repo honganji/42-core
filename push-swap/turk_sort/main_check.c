@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 19:05:38 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/02 19:02:46 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/03 12:29:51 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	lst_a = NULL;
 	lst_b = NULL;
 	array = (long *)malloc((argc - 1) * sizeof(long));
-	if (!check_arg(argc, argv, &array))
+	if (!store_arg(argc, argv, &array))
 		return (0);
 	while (i < argc)
 	{

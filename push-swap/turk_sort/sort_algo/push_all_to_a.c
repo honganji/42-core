@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   step_4.c                                           :+:      :+:    :+:   */
+/*   push_all_to_a.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 20:28:19 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/02 19:27:38 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/03 11:52:33 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	get_last_element(t_list *a)
 	return (*(int *)a->content);
 }
 
-void	push_all_from_b(t_list **a, t_list **b)
+void	push_all_to_a(t_list **a, t_list **b)
 {
-	int	count;
-	t_ab_op	ab_op;
+	int		count;
+	t_ab_op	final;
 
 	count = 0;
 	while (*b)
@@ -34,7 +34,7 @@ void	push_all_from_b(t_list **a, t_list **b)
 		}
 		pa(a, b);
 	}
-	cal_op(*a, get_min_num(*a), &ab_op.a_op);
-	ab_op.b_op.times = 0;
-	sort_a_b(ab_op, a, b);
+	cal_op(*a, get_min_num(*a), &final.a);
+	final.b.times = 0;
+	sort_a_b(final, a, b);
 }
