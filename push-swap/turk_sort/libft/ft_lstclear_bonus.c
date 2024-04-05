@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:28:07 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/03/12 15:41:11 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/05 17:04:48 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		return ;
 	while (*lst && lst)
 	{
+		printf("value%d", *(int *)(*lst)->content);
 		tmp = (*lst)->next;
 		ft_lstdelone(*lst, del);
 		*lst = tmp;

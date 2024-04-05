@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 19:05:38 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/03 11:43:11 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/05 17:28:01 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ int	main(int argc, char **argv)
 	}
 	push_swap(&a, &b);
 	free(array);
+	clear_lst(&a);
 	return (0);
 }

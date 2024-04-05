@@ -1,0 +1,88 @@
+NAME = push_swap
+NAME_BONUS = checker
+
+UTILS_DIR = utils
+ALGO_SORT_DIR = sort_algo
+LIBFT_DIR = libft
+BONUS_DIR = bonus
+
+OBJ_DIR = objs
+OBJ_DIR_BONUS = objs_bonus
+
+SOURCE = push_swap.c main.c libft/ft_bzero.c libft/ft_calloc.c \
+		 libft/ft_isdigit.c libft/ft_atoi.c libft/ft_lstadd_back.c \
+		 libft/ft_lstadd_front.c  libft/ft_lstnew.c libft/ft_putstr_fd.c \
+		 libft/ft_lstsize.c utils/basis.c utils/check_args.c utils/clear_lst.c \
+		 utils/push.c utils/reverse_rotate.c utils/rotate.c utils/swap.c \
+		 sort_algo/push_all_to_a.c sort_algo/push_two_num.c \
+		 sort_algo/push_with_sort.c sort_algo/sort_three_nums.c \
+		 sort_algo/utils.c
+
+SOURCE_BONUS = push_swap.c main_bonus.c libft/ft_bzero.c libft/ft_calloc.c \
+			   libft/ft_isdigit.c libft/ft_atoi.c libft/ft_lstadd_back.c \
+			   libft/ft_lstadd_front.c libft/ft_lstnew.c libft/ft_putstr_fd.c \
+			   libft/ft_lstsize.c utils/basis.c utils/check_args.c \
+			   utils/clear_lst.c utils/push.c utils/reverse_rotate.c \
+			   utils/rotate.c utils/swap.c sort_algo/push_all_to_a.c \
+			   sort_algo/push_two_num.c sort_algo/push_with_sort.c \
+			   sort_algo/sort_three_nums.c sort_algo/utils.c \
+			   bonus/check_result_bonus.c
+
+OBJS = $(SOURCE:%.c=$(OBJ_DIR)/%.o)
+OBJS_BONUS = $(SOURCE_BONUS:%.c=$(OBJ_DIR_BONUS)/%.o)
+
+RM = rm
+CC = cc
+AR = ar
+MAKE_DIR = mkdir
+
+RM_FLAG = -rf
+CC_FLAG = -Wall -Wextra -Werror
+AR_FLAG = -rcs
+
+ARGS = 165 123 103 433 467 439 145 178 29 181 125 243 183 187 106 173 208 495 381 11 236 451 318 141 287 79 144 26 87 95 461 321 244 185 330 278 105 472 80 180 269 263 171 219 237 317 70 76 406 431 250 368 109 426 131 220 198 372 202 275 475 214 346 93 371 195 262 399 424 23 359 158 9 102 16 74 413 380 39 227 310 300 63 391 52 121 288 299 13 490 152 251 398 116 401 261 341 36 335 82 403 27 160 322 294 393 60 314 35 328 460 43 290 355 422 286 397 232 402 157 108 197 455 264 127 113 135 412 150 81 462 186 365 487 498 149 283 210 404 289 443 421 69 295 389 428 32 124 468 331 315 155 42 266 8 432 276 336 383 307 31 425 392 429 277 308 456 17 415 272 340 12 417 348 302 463 61 217 459 471 73 309 369 257 280 281 357 129 166 312 119 118 212 114 200 137 333 285 172 296 94 59 234 291 22 91 65 293 153 136 156 489 164 442 216 19 265 411 239 327 140 204 395 324 188 377 273 112 454 366 207 18 259 71 444 483 154 107 414 222 313 231 233 117 435 349 162 494 211 452 306 374 194 225 47 446 367 338 464 329 255 465 358 110 282 115 491 66 256 407 378 469 193 450 360 482 38 342 304 177 445 319 96 344 224 179 134 238 68 453 235 449 45 15 325 14 203 168 1 253 499 72 423 64 104 485 363 420 169 437 97 51 241 305 326 297 427 84 159 240 174 6 387 49 440 497 441 419 83 430 457 301 361 351 488 25 139 271 418 320 67 354 478 130 353 92 175 44 373 37 370 56 350 133 142 184 146 90 416 182 496 405 53 132 189 10 477 474 343 201 191 229 75 101 252 55 40 167 270 128 78 170 28 228 258 379 176 409 99 161 209 382 246 311 230 147 447 408 41 486 242 375 400 356 163 466 58 199 24 100 362 384 215 54 21 479 33 332 364 138 396 50 376 316 385 249 111 473 492 190 352 245 274 493 323 334 213 394 57 386 458 126 205 448 345 48 481 120 436 151 284 86 218 7 3 62 339 20 247 89 476 390 122 388 85 484 77 226 46 303 2 410 470 260 268 438 347 254 88 5 279 192 267 292 196 223 34 480 148 434 30 337 248 4 221 206 298 143 500 98 
+
+all: $(NAME)
+
+$(NAME): $(OBJ_DIR) $(OBJS)
+	$(CC) $(G_FLAG) $(CC_FLAG) -o $@ $(OBJS)
+
+clean:
+	$(RM) $(RM_FLAG) $(OBJ_DIR) $(OBJ_DIR_BONUS)
+
+fclean: clean
+	$(RM) $(RM_FLAG) $(NAME) $(NAME_BONUS)
+
+re: fclean all
+
+exe: all
+	./$(NAME) $(ARGS)
+
+bonus: $(NAME_BONUS)
+	
+exe_bonus: bonus
+	./$(NAME_BONUS) $(ARGS)
+
+$(NAME_BONUS): $(OBJ_DIR_BONUS) $(OBJS_BONUS)
+	$(CC) $(CC_FLAG) -o $@ $(OBJS_BONUS)
+
+$(OBJ_DIR)/%.o: %.c
+	$(CC) $(G_FLAG) $(CC_FLAG) -c $< -o $@
+
+$(OBJ_DIR_BONUS)/%.o: %.c
+	$(CC) $(CC_FLAG) -c $< -o $@
+
+$(OBJ_DIR):
+	$(MAKE_DIR) $(OBJ_DIR)
+	$(MAKE_DIR) $(OBJ_DIR)/$(UTILS_DIR)
+	$(MAKE_DIR) $(OBJ_DIR)/$(ALGO_SORT_DIR)
+	$(MAKE_DIR) $(OBJ_DIR)/$(LIBFT_DIR)
+
+$(OBJ_DIR_BONUS):
+	$(MAKE_DIR) $(OBJ_DIR_BONUS)
+	$(MAKE_DIR) $(OBJ_DIR_BONUS)/$(UTILS_DIR)
+	$(MAKE_DIR) $(OBJ_DIR_BONUS)/$(ALGO_SORT_DIR)
+	$(MAKE_DIR) $(OBJ_DIR_BONUS)/$(LIBFT_DIR)
+	$(MAKE_DIR) $(OBJ_DIR_BONUS)/$(BONUS_DIR)
+
+.PHONY: all clean fclean re exe bonus exe_bonus
