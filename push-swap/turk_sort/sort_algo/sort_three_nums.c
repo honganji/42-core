@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   step_3.c                                           :+:      :+:    :+:   */
+/*   sort_three_nums.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 19:43:46 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/02 18:36:53 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/08 18:02:46 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	check_if_sorted(t_list *a)
 {
 	while (a->next)
 	{
-		if (a->content > a->next->content)
+		if (*(int *)a->content > *(int *)a->next->content)
 			return (0);
 		a = a->next;
 	}

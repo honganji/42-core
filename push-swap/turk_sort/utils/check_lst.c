@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   check_lst.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/16 16:36:01 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/03 11:45:39 by ytoshihi         ###   ########.fr       */
+/*   Created: 2024/04/02 17:27:39 by ytoshihi          #+#    #+#             */
+/*   Updated: 2024/04/06 17:33:05 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./utils.h"
 
-void	push_swap(t_list **a, t_list **b)
+int	check_lst(t_list *a)
 {
-	if (!push_two_num(a, b))
-		return ;
-	push_with_sort(a, b);
-	sort_three_nums(a);
-	push_all_to_a(a, b);
+	while (a->next)
+	{
+		if (*(int *)a->content > *(int *)a->next->content)
+			return (0);
+		a = a->next;
+	}
+	return (1);
 }

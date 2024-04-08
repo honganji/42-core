@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 09:13:12 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/05 17:10:11 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/08 10:40:44 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void	rra(t_list **lst_a);
 void	rrb(t_list **lst_b);
 void	rrr(t_list **lst_a, t_list **lst_b);
 int		push_two_num(t_list **a, t_list **b);
-int		store_arg(int argc, char **argv, long **array);
+int		store_arg(int *argc, char **argv, long **array);
 void	clear_lst(t_list **lst);
+int		check_lst(t_list *a);
 
 #endif

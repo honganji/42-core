@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args.c                                       :+:      :+:    :+:   */
+/*   store_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 14:35:08 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/04 15:03:37 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/08 18:51:02 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@ int	check_unique(int argc, long *array)
 	{
 		tmp = array[count_1];
 		count_2 = count_1 + 1;
-		while (count_2 < argc - 1)
+		while (count_2 < argc)
 		{
 			if (tmp == array[count_2++])
 			{
+				free(array);
+				ft_putstr_fd("Error\n", 1);
 				return (0);
 			}
 		}
@@ -36,27 +38,31 @@ int	check_unique(int argc, long *array)
 	return (1);
 }
 
-static int	check_type_int(int argc, char **argv)
+static int	check_type_int(int argc, char **argv, long *array)
 {
 	int		count;
 	long	tmp;
 
-	count = 1;
+	count = 0;
 	while (count < argc)
 	{
 		tmp = ft_atoi(argv[count++]);
 		if (tmp != (int)tmp)
+		{
+			free(array);
+			ft_putstr_fd("Error\n", 1);
 			return (0);
+		}
 	}
 	return (1);
 }
 
-int	check_num(int argc, char **argv)
+int	check_num(int argc, char **argv, long *array)
 {
 	int	argv_count;
 	int	str_count;
 
-	argv_count = 1;
+	argv_count = 0;
 	str_count = 0;
 	while (argv_count < argc)
 	{
@@ -68,7 +74,11 @@ int	check_num(int argc, char **argv)
 		while (argv[argv_count][str_count])
 		{
 			if (!ft_isdigit(argv[argv_count][str_count++]))
+			{
+				free(array);
+				ft_putstr_fd("Error\n", 1);
 				return (0);
+			}
 		}
 		str_count = 0;
 		argv_count++;
@@ -76,28 +86,55 @@ int	check_num(int argc, char **argv)
 	return (1);
 }
 
-int	store_arg(int argc, char **argv, long **array)
+static int	split_args(int *argc, char *args, long **array)
 {
+	char	**str;
 	int		count;
 
-	count = 1;
-	if (!check_num(argc, argv) || !check_type_int(argc, argv))
+	str = ft_split(args, ' ');
+	count = 0;
+	while (str[count])
+		count++;
+	*argc = count;
+	free(*array);
+	*array = (long *)malloc(count * sizeof(long));
+	count = 0;
+	if (!check_num(*argc, str, *array) || !check_type_int(*argc, str, *array))
 	{
-		ft_putstr_fd("Error\n", 1);
-		free(*array);
+		free_arr(str);
 		return (0);
 	}
-	count = 1;
-	while (count < argc)
+	while (count < *argc)
 	{
-		(*array)[count - 1] = ft_atoi(argv[argc - count]);
+		(*array)[count] = ft_atoi(str[count]);
 		count++;
 	}
-	if (!check_unique(argc, *array))
+	free_arr(str);
+	return (1);
+}
+
+int	store_arg(int *argc, char **argv, long **array)
+{
+	int	count;
+
+	count = 0;
+	if (*argc == 1)
 	{
-		ft_putstr_fd("Error\n", 1);
-		free(*array);
-		return (0);
+		if (!split_args(argc, argv[0], array))
+			return (0);
 	}
+	else
+	{
+		if (!check_num(*argc, argv, *array) || !check_type_int(*argc, argv,
+				*array))
+			return (0);
+		while (count < *argc)
+		{
+			(*array)[count] = ft_atoi(argv[count]);
+			count++;
+		}
+	}
+	if (!check_unique(*argc, *array) || !*(argv[0]))
+		return (0);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 09:13:29 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/02 18:17:07 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/06 17:47:08 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "./utils/utils.h"
 # include "./sort_algo/sort_algo.h"
-# include "./check/checker.h"
 # include <stdio.h>
 # include <stdarg.h>
 # include <limits.h>

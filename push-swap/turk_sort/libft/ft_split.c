@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:34:38 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/03/12 18:17:29 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/08 18:50:27 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static char	*word_dup(int start, int end, const char *str)
 	return (word);
 }
 
-static char	**free_arr(char **str_arr)
+char	**free_arr(char **str_arr)
 {
 	int	count;
 
