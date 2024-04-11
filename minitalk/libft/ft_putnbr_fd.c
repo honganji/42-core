@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 19:23:15 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/03/10 20:20:37 by ytoshihi         ###   ########.fr       */
+/*   Created: 2024/03/05 19:30:30 by ytoshihi          #+#    #+#             */
+/*   Updated: 2024/03/08 11:48:39 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t num, size_t size)
+void	ft_putnbr_fd(int n, int fd)
 {
-	void	*p;
-	int		tmp;
+	char	c;
 
-	tmp = num * size;
-	if (num && size && (tmp / size != num))
-		return (NULL);
-	p = malloc(tmp);
-	if (!p)
-		return (NULL);
-	ft_bzero(p, tmp);
-	return (p);
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (n == 0)
+	{
+		write(fd, "0", 1);
+		return ;
+	}
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n *= -1;
+	}
+	if (n / 10 > 0)
+		ft_putnbr_fd(n / 10, fd);
+	c = '0' + n % 10;
+	write(fd, &c, sizeof(char));
 }

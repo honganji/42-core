@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 10:42:19 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/09 15:50:51 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/10 09:44:14 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdio.h>
 # include <signal.h>
+# include <unistd.h>
 # include "../libft/libft.h"
 
 #endif
