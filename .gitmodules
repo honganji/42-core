@@ -1,3 +1,6 @@
 [submodule "so_long/libs/42-c-library"]
 	path = so_long/libs/42-c-library
 	url = https://github.com/honganji/42-c-library.git
+[submodule "so_long/libs/MLX42"]
+	path = so_long/libs/MLX42
+	url = https://github.com/codam-coding-college/MLX42.git
