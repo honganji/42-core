@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:25:10 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/17 14:03:21 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/17 20:05:29 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # define IMG_PIXEL 100
 # define IMG_NUM 6
 
-# include "../so_long.h"
 # include "../libs/42-c-library/library.h"
 # include <MLX42/MLX42.h>
 # include <memory.h>
