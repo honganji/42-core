@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 22:08:05 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/17 14:04:13 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:35:06 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	update_image(t_data *data, char prop, int x, int y)
 		img_index = 4;
 	if (prop == 'G')
 		img_index = 5;
-	data->map[y][x] = prop;
+	if (prop != 'G')
+		data->map[y][x] = prop;
 	if (mlx_image_to_window(data->mlx, (data->images)[img_index], x * IMG_PIXEL,
 		y * IMG_PIXEL) < 0)
 		error("There is something wrong when to move");
