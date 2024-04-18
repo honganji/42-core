@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/05 19:36:20 by ytoshihi          #+#    #+#             */
+/*   Updated: 2024/03/10 16:33:32 by ytoshihi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static int	get_strlen(char *str)
+static int	get_strlen(const char *str)
 {
 	int	count;
 
@@ -10,17 +22,17 @@ static int	get_strlen(char *str)
 	return (count);
 }
 
-char	*ft_strrchr(char *str, int c)
+char	*ft_strrchr(const char *str, int c)
 {
-	int	count;
+	int		count;
+	char	chr;
 
-	count = get_strlen(str) - 1;
-	if (*str == '\0')
-		return (NULL);
-	while (count != 0)
+	count = get_strlen(str);
+	chr = (char)c;
+	while (count >= 0)
 	{
-		if (str[count] == c)
-			return (&str[count]);
+		if (str[count] == chr)
+			return ((char *)&str[count]);
 		count--;
 	}
 	return (NULL);

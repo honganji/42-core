@@ -1,4 +1,16 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/05 19:36:25 by ytoshihi          #+#    #+#             */
+/*   Updated: 2024/03/10 19:43:30 by ytoshihi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 static int	get_strlen(char const *str)
 {
@@ -10,54 +22,25 @@ static int	get_strlen(char const *str)
 	return (count);
 }
 
-static int	check_if_same(char *str1, char const *set)
-{
-	while (*set)
-	{
-		if (*str1++ != *set++)
-			return (0);
-	}
-	return (1);
-}
-
-static void	trim_str(char *s1, char const *set, int *s1_size)
-{
-	char	*tmp;
-
-	tmp = s1;
-	while (*set++)
-	{
-		*s1_size = *s1_size - 1;
-		tmp++;
-	}
-	while (*tmp)
-		*s1++ = *tmp++;
-}
-
 char	*ft_strtrim(char *s1, char const *set)
 {
 	char	*str;
-	char	*start_ptr;
-	int		s1_size;
-	int		count;
+	int		start;
+	int		end;
 
-	start_ptr = s1;
-	s1_size = get_strlen(s1);
-	count = 0;
-	while (*s1)
-	{
-		if (check_if_same(s1, set))
-			trim_str(s1, set, &s1_size);
-		s1++;
-	}
-	start_ptr[s1_size] = '\0';
-	str = (char *)malloc((get_strlen(start_ptr) + 1) * sizeof(char));
+	start = 0;
+	end = get_strlen(s1) - 1;
+	if (!*s1)
+		return (ft_strdup(""));
+	if (!*set)
+		return (ft_strdup(s1));
+	while (start <= end && s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	while (end >= start && s1[end] && ft_strchr(set, s1[end]))
+		end--;
+	str = (char *)malloc((end - start + 2) * sizeof(char));
 	if (!str)
 		return (NULL);
-	while (*start_ptr)
-	{
-		str[count++] = *start_ptr++;
-	}
-	str[count] = '\0';
+	ft_strlcpy(str, &s1[start], end - start + 2);
 	return (str);
 }

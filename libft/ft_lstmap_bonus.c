@@ -1,43 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 19:35:13 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/03/11 17:43:42 by ytoshihi         ###   ########.fr       */
+/*   Created: 2024/03/05 19:28:29 by ytoshihi          #+#    #+#             */
+/*   Updated: 2024/03/12 10:57:02 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	get_strlen(char const *str)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int	count;
+	t_list	*new_lst;
+	t_list	*new_element;
+	void	*content;
 
-	count = 0;
-	while (str[count])
-		count++;
-	return (count);
-}
-
-char	*ft_strdup(const char *s1)
-{
-	int		length;
-	char	*value;
-	int		count;
-
-	length = get_strlen(s1);
-	value = (char *)malloc((length + 1) * sizeof(char));
-	if (!value)
+	if (!lst || !f || !del)
 		return (NULL);
-	count = 0;
-	while (s1[count])
+	new_lst = NULL;
+	while (lst)
 	{
-		value[count] = s1[count];
-		count++;
+		content = f(lst->content);
+		new_element = ft_lstnew(content);
+		if (!new_element)
+		{
+			ft_lstclear(&new_lst, (*del));
+			(del)(content);
+			free(new_element);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_lst, new_element);
+		lst = lst->next;
 	}
-	value[count] = '\0';
-	return (value);
+	return (new_lst);
 }

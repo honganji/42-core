@@ -1,58 +1,48 @@
-SOURCES = ft_isalnum.c ft_isprint.c ft_memmove.c ft_strlcat.c ft_strnstr.c
-SOURCES += ft_atoi.c ft_isalpha.c ft_memchr.c  ft_memset.c  ft_strlcpy.c ft_strrchr.c
-SOURCES += ft_bzero.c ft_isascii.c ft_memcmp.c  ft_strchr.c ft_strlen.c  ft_tolower.c
-SOURCES += ft_calloc.c  ft_isdigit.c ft_memcpy.c  ft_strdup.c  ft_strncmp.c ft_toupper.c
+SOURCES = ft_isalnum.c ft_isprint.c ft_memmove.c ft_strlcat.c ft_strnstr.c \
+          ft_atoi.c ft_isalpha.c ft_memchr.c  ft_memset.c  ft_strlcpy.c \
+		  ft_strrchr.c ft_bzero.c ft_isascii.c ft_memcmp.c  ft_strchr.c \
+		  ft_strlen.c  ft_tolower.c ft_calloc.c  ft_isdigit.c ft_memcpy.c \
+		  ft_strdup.c  ft_strncmp.c ft_toupper.c ft_substr.c  ft_strjoin.c \
+		  ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
+		  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+
+SOURCES_BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c \
+				ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstadd_back_bonus.c \
+				ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c \
+				ft_lstmap_bonus.c
 
 HEADER = libft.h
 
 NAME = libft.a
 
-OBJ_DIR = objs
-OBJS = $(SOURCES:%.c=$(OBJ_DIR)/%.o)
-
-TEST_DIR = test
-TEST_NAME = testft
-TEST_MAIN = test_main.c
+OBJS = $(SOURCES:%.c=%.o)
+OBJS_BONUS = $(SOURCES_BONUS:%.c=%.o) 
 
 CFLAG = -Wall -Wextra -Werror
 ARFLAG = rcs
 RMFLAG = -rf
 
-CC = gcc
+CC = cc
 AR = ar
 RM = rm
 
-CHECK_NAME = check
-CHECK_SRC = ft_split.c
-
 all: $(NAME)
 
-$(NAME): $(OBJ_DIR) $(OBJS) $(HEADER)
-	$(AR) $(ARFLAG) $(NAME) $(OBJS)
-
-$(OBJ_DIR)/%.o: %.c $(HEADER)
-	$(CC) $(CFLAG) -c $< -o $@
-
-$(OBJ_DIR):
-	mkdir $(OBJ_DIR)
-
 clean:
-	$(RM) $(RMFLAG) $(OBJ_DIR)
+	$(RM) $(RMFLAG) $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	$(RM) -f libft.a
+	$(RM) $(RMFLAG) $(NAME)
 
-re:
-	fclean all
+re: fclean all
 
-test: $(TEST_NAME)
-	./$(TEST_NAME)
-	@rm -f $(TEST_NAME)
+bonus: $(OBJS) $(OBJS_BONUS)
+	$(AR) $(ARFLAG) $(NAME) $(OBJS) $(OBJS_BONUS)
 
-$(TEST_NAME):
-	$(CC) $(TEST_DIR)/*.c ./*.c -o $(TEST_NAME)
+$(NAME): $(OBJS) $(HEADER)
+	$(AR) $(ARFLAG) $(NAME) $(OBJS)
 
-check:
-	$(CC) $(CHECK_SRC) -o $(CHECK_NAME)
-	./$(CHECK_NAME)
-	@rm -f $(CHECK_NAME)
+%.o: %.c $(HEADER)
+	$(CC) $(CFLAG) -c $< -o $@
+
+.PHONY : all clean fclean rm bonus

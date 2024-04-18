@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/05 19:35:27 by ytoshihi          #+#    #+#             */
+/*   Updated: 2024/03/05 19:35:27 by ytoshihi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 
 static int	get_strlen(char const *str)
@@ -12,8 +24,8 @@ static int	get_strlen(char const *str)
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *str;
-	int count;
+	char	*str;
+	int		count;
 
 	str = (char *)malloc((get_strlen(s1) + get_strlen(s2) + 1) * sizeof(char));
 	count = 0;

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/05 19:35:34 by ytoshihi          #+#    #+#             */
+/*   Updated: 2024/03/10 17:01:25 by ytoshihi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	get_strlen(char *str)
@@ -10,11 +22,11 @@ static int	get_strlen(char *str)
 	return (count);
 }
 
-int	ft_strlcat(char *dest, char *src, int size)
+size_t	ft_strlcat(char *dest, char *src, size_t size)
 {
-	int	count;
-	int	dest_size;
-	int	src_size;
+	size_t	count;
+	size_t	dest_size;
+	int		src_size;
 
 	count = 0;
 	src_size = get_strlen(src);
@@ -23,7 +35,7 @@ int	ft_strlcat(char *dest, char *src, int size)
 		count++;
 	if (dest_size < size)
 	{
-		while (count < size - 1)
+		while (count < size - 1 && src[count - dest_size])
 		{
 			dest[count] = src[count - dest_size];
 			count++;
