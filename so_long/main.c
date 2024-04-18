@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:30:47 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/18 14:27:37 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:39:00 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int32_t	main(int argc, char **argv)
 	char	*map_path;
 
 	if (argc != 2)
-		error("The number of argument is not right...");
+		error("The number of arguments is not right...");
 	map_path = argv[1];
 	data = ft_calloc(1, sizeof(t_data));
 	if (!data)
