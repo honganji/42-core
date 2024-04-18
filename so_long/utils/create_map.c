@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:21:19 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/17 14:19:48 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:06:32 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,6 @@ void	create_map(t_data *data, char *map_path)
 	if (!check_path(data))
 	{
 		free_data(data);
-		error("One of the objects is missing or unreachable...");
+		error("The number of objects is wrong or there is unreachable one...");
 	}
 }
