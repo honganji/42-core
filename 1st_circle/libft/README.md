@@ -19,7 +19,7 @@ In this project, you will make a bunch of functions that are useful for other pr
 
 The point is to get used to Makefile and learn how to link a .c file to a .o and a .a file. Also this is the first project in 42 so you should learn many rules.
 
-# $\color{SkyBlue}{Difficult Part}$
+# $\color{SkyBlue}{Difficult \space Part}$
 
 There are many functions and of course it is hard to write code for each correctly but there are specially difficult ones.
 
