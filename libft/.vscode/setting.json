@@ -1,5 +1,0 @@
-{
-    "editor.formatOnSaveExclusions": {
-        "**/test.c": true
-    }
-}
