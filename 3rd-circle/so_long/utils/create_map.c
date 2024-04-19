@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:21:19 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/18 14:06:32 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/19 15:51:04 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,7 @@ static void	allocate_map_helper(t_data *data)
 	{
 		data->map[count_y] = ft_calloc(data->size.x, sizeof(char));
 		if (!data->map[count_y])
-		{
-			while (count_y >= 0)
-				free(data->map[count_y--]);
-			free(data->map);
 			error("The allocation for map failed...");
-		}
 		count_y++;
 	}
 }
@@ -125,23 +120,14 @@ void	create_map(t_data *data, char *map_path)
 	allocate_map(data, map_path);
 	insert_values(data, map_path);
 	if (!check_walls(data))
-	{
-		free_map(data);
 		error("The map is not surrounded by walls appropriately...");
-	}
 	if (!check_objects(data))
-	{
-		free_map(data);
 		error("There is invalid object...");
-	}
 	width = data->size.x * IMG_PIXEL;
 	height = data->size.y * IMG_PIXEL;
 	mlx_set_window_size(data->mlx, width, height);
 	mlx_resize_image((data->images)[IMG_NUM - 1], width / 2, height / 2);
 	put_objects(data);
 	if (!check_path(data))
-	{
-		free_data(data);
 		error("The number of objects is wrong or there is unreachable one...");
-	}
 }

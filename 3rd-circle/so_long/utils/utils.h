@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:25:10 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/17 20:05:29 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/19 16:01:40 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef struct s_size
+typedef struct s_coord
 {
 	int	x;
 	int	y;
-}t_size;
-
-typedef struct s_position
-{
-	int	x;
-	int	y;
-}t_position;
+}t_coord;
 
 typedef struct s_data
 {
@@ -47,8 +41,8 @@ typedef struct s_data
 	mlx_texture_t	*textures[IMG_NUM];
 	mlx_image_t		*images[IMG_NUM];
 	char			**map;
-	t_size			size;
-	t_position		position;
+	t_coord			size;
+	t_coord			position;
 	int				count;
 	int				col_sum;
 	int				move_count;
@@ -69,9 +63,6 @@ void	key_hook(mlx_key_data_t keydata, void *param);
 void	move(t_data *data, int diff_x, int diff_y);
 void	update_image(t_data *data, char prop, int x, int y);
 void	register_images(t_data *data);
-void	free_map(t_data *data);
-void	free_data(t_data *data);
-void	close_func(void *param);
 void	loop_func(void *param);
 int		check_walls(t_data *data);
 void	check_line_num(char *map_path);

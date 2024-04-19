@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 19:50:08 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/16 14:21:24 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/19 16:10:08 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,8 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 			move(param, 1, 0);
 	}
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
-		free_data(data);
+	{
+		// system("leaks so_long");
+		exit(EXIT_SUCCESS);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 22:08:05 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/18 14:35:06 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/19 15:58:19 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	update_image(t_data *data, char prop, int x, int y)
 	if (prop != 'G')
 		data->map[y][x] = prop;
 	if (mlx_image_to_window(data->mlx, (data->images)[img_index], x * IMG_PIXEL,
-		y * IMG_PIXEL) < 0)
+			y * IMG_PIXEL) < 0)
 		error("There is something wrong when to move");
 }
 
@@ -53,35 +53,6 @@ void	register_images(t_data *data)
 		mlx_resize_image((data->images)[i], IMG_PIXEL, IMG_PIXEL);
 		i++;
 	}
-}
-
-void	free_map(t_data *data)
-{
-	int	i;
-
-	i = 0;
-	while (i < data->size.y)
-		free(data->map[i++]);
-	free(data->map);
-	free(data);
-}
-
-void	free_data(t_data *data)
-{
-	int	i;
-
-	i = 0;
-	while (i < data->size.y)
-		free(data->map[i++]);
-	free(data->map);
-	i = 0;
-	while (i < IMG_NUM)
-	{
-		mlx_delete_image(data->mlx, data->images[i]);
-		mlx_delete_texture(data->textures[i++]);
-	}
-	mlx_close_window(data->mlx);
-	free(data);
 }
 
 char	**copy_map(t_data *data)
