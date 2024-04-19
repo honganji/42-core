@@ -6,7 +6,7 @@
 /*   By: ytoshihi <ytoshihi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 15:27:08 by ytoshihi          #+#    #+#             */
-/*   Updated: 2024/04/17 13:45:00 by ytoshihi         ###   ########.fr       */
+/*   Updated: 2024/04/19 16:01:11 by ytoshihi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ int	check_walls(t_data *data)
 	y = 0;
 	col = data->map[y++];
 	while (x < data->size.x)
+	{
 		if (col[x++] != '1')
 			return (0);
+	}
 	while (y < data->size.y - 1)
 	{
 		col = data->map[y++];
-		if (col[0] != '1' || col[data->size.x -1] != '1')
+		if (col[0] != '1' || col[data->size.x - 1] != '1')
 			return (0);
 	}
 	col = data->map[y];
@@ -61,11 +63,7 @@ int	check_objects(t_data *data)
 {
 	t_count	count;
 
-	count.p = 0;
-	count.c = 0;
-	count.e = 0;
-	count.x = -1;
-	count.y = -1;
+	count = (t_count){0, 0, 0, -1, -1};
 	while (++count.y < data->size.y)
 	{
 		while (++count.x < data->size.x)
@@ -82,7 +80,7 @@ int	check_objects(t_data *data)
 	return (1);
 }
 
-void	flood_fill(char **tab, t_data *data, t_position	*pos, t_count *count)
+void	flood_fill(char **tab, t_data *data, t_coord *pos, t_count *count)
 {
 	if (pos->x < 0 || pos->y < 0 || tab[pos->y][pos->x] == '1')
 		return ;
@@ -94,22 +92,27 @@ void	flood_fill(char **tab, t_data *data, t_position	*pos, t_count *count)
 		count->e++;
 	tab[pos->y][pos->x] = '1';
 	(void)data;
-	flood_fill(tab, data, &(t_position){pos->x - 1, pos->y}, count);
-	flood_fill(tab, data, &(t_position){pos->x + 1, pos->y}, count);
-	flood_fill(tab, data, &(t_position){pos->x, pos->y - 1}, count);
-	flood_fill(tab, data, &(t_position){pos->x, pos->y + 1}, count);
+	flood_fill(tab, data, &(t_coord){pos->x - 1, pos->y}, count);
+	flood_fill(tab, data, &(t_coord){pos->x + 1, pos->y}, count);
+	flood_fill(tab, data, &(t_coord){pos->x, pos->y - 1}, count);
+	flood_fill(tab, data, &(t_coord){pos->x, pos->y + 1}, count);
 }
 
 int	check_path(t_data *data)
 {
 	char		**tab;
-	t_position	pos;
+	t_coord	pos;
 	t_count		count;
+	int			i;
 
 	tab = copy_map(data);
 	pos = data->position;
 	count = (t_count){0, 0, 0, 0, 0};
+	i = -1;
 	flood_fill(tab, data, &pos, &count);
+	while (++i < data->size.y)
+		free(tab[i]);
+	free(tab);
 	if (count.p != 1 || count.c < 1 || count.e != 1 || count.c != data->col_sum)
 		return (0);
 	return (1);
