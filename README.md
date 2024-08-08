@@ -20,13 +20,13 @@ It is consist of 7 circles and to go to next circle, you should pass all the pro
 
 # Projects
 
-## 1st Circle
+## Libft
 
 |Name|Language|Spent Days|Discription|
 |----|--------|----------|-----------|
 |[Libft](https://github.com/honganji/42-core/tree/main/libft)|C|2 weeks|Create a library that is useful for another projects. You should deal with allocation, pointer, etc...|
 
-## 2nd Circle
+## 1st Circle
 
 |Name|Language|Spent Days|Discription|
 |----|--------|----------|-----------|
@@ -40,7 +40,7 @@ It is consist of 7 circles and to go to next circle, you should pass all the pro
 |----|--------|----------|-----------|
 |[Born2beroot](https://github.com/honganji/42-core/tree/main/Born2beroot)|C|3 days|Create a virtual machine. You will learn how a computer works.|
 
-## 3rd Circle
+## 2nd Circle
 
 |Name|Language|Spent Days|Discription|
 |----|--------|----------|-----------|
@@ -54,10 +54,10 @@ It is consist of 7 circles and to go to next circle, you should pass all the pro
 |----|--------|----------|-----------|
 |[so_long](https://github.com/honganji/42-core/tree/main/so_long)|C|3 days|Create a mini 2D game. In the game, you will pick up collectibles and go to goal. You learn how to use a library to show up window and create a game.|
 
+## 3rd Circle
+
 ## 4th Circle
 
 ## 5th Circle
 
 ## 6th Circle
-
-## 7th Circle
